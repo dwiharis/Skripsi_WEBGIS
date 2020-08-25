@@ -59,7 +59,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <input type="checkbox" id="drop" />
                          <ul class="menu">
                             <li class="active"><a href="index.php">Beranda</a></li>
-                            <li><a href="deteksi.html">Deteksi Wilayah</a></li>
+                            <li><a href="deteksi.php">Deteksi Wilayah</a></li>
                             <li><a href="login.php">Login</a></li>
                             
                         </ul>
@@ -82,8 +82,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
     
             
+            <div class="container">
+                <br><form action="#" method="post">
                         <table border="1">
-                        <tr> &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; </tr>
                             <tr>
                                 <select id="kecamatan" class="menu-warp" name="nama_kecamatan" tabindex="6" required>
                            <option value="" disabled="" selected="">-- Silakan Pilih Kecamatan --</option>
@@ -99,18 +100,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                 <?php } ?>
                           </select>
                             </tr>
-                            <tr>&nbsp  &nbsp</tr>
+                            &nbsp
                             <tr>
-                               <select id="kecamatan" class="menu-warp" name="nama_status" tabindex="6" required>
+                                <select id="kecamatan" class="menu-warp" name="nama_kecamatan" tabindex="6" required>
                            <option value="" disabled="" selected="">-- Silakan Pilih Status --</option>
-                                              
-                          </select> 
+                            <?php
+                            include "koneksi.php";
+                                                    $query = mysqli_query($koneksi, "SELECT * FROM cluster ORDER BY nm_cluster");
+                                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                                    <option value="<?php echo $row['id_cluster']; ?>">
+                                                        <?php echo $row['nm_cluster']; ?>
+                                                    </option>
+
+                                                <?php } ?>
+                          </select>
                             </tr>
-                            <tr>&nbsp  &nbsp</tr>
+                            &nbsp
                             <tr>
                               <button class="btn btn-success" class="menu-warp" type="submit" name="button" >Apply</button>   
                             </tr>
                         </table>
+                        </form>
+                        </div>
                         
                 
 

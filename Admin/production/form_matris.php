@@ -20,7 +20,7 @@ $aa1=mysqli_query($koneksi, $data1);
 $aaa=mysqli_fetch_array($aa1);
 $id=$aaa['id_aturan'];
 $jum=$aaa['jml_cluster'];
-//$no=1;
+$no=1;
 for ($i=1; $i <= $jum; $i++) { 
 ?>
 <input name="id<?php echo $no++; ?>" type="hidden" value="<?php echo $deteksi['id_deteksi'] ?>"></input>
